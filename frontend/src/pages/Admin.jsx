@@ -74,7 +74,7 @@ const Admin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === 'admin123') {
+    if (username === 'tanmay_admin' && password === 'MeetupSecure2026!') {
       setIsAuthenticated(true);
       setLoginError('');
     } else {
@@ -141,7 +141,7 @@ const Admin = () => {
               <h2 style={{ marginBottom: '0.5rem' }}>Admin Access</h2>
               <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '0.9rem' }}>
                 Please login to manage registrations. <br/>
-                <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>(User: admin | Pass: admin123)</span>
+                <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>(User: tanmay_admin | Pass: MeetupSecure2026!)</span>
               </p>
 
               {loginError && (
