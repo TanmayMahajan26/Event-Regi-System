@@ -95,9 +95,9 @@ const sendTicketEmail = async (registration) => {
         const base64Data = qrDataUrl.split(';base64,').pop();
 
         const info = await transporter.sendMail({
-            from: '"Designer Meetups" <${process.env.SMTP_EMAIL}>',
+            from: `"Designer Meetups" <${process.env.SMTP_EMAIL}>`,
             to: registration.email,
-            subject: \`🎟️ Your Confirmed Tickets: \${registration.eventName}\`,
+            subject: `🎟️ Your Confirmed Tickets: ${registration.eventName}`,
             html: htmlContent,
             attachments: [
                 {
