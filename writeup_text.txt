@@ -1,0 +1,323 @@
+
+
+Academic Year
+2025-2026
+Estimated Time
+Experiment No. 6 – 02 Hours
+Course & Semester
+SE Computer Engg.
+Subject Name
+Full Stack Development
+Module No.
+06
+Chapter Title
+Frontend implementation with MongoDB 
+Experiment Type
+Software/ Web Application Development
+Subject Code
+25VSE12CE03
+
+Name of     Student
+
+Roll No.
+
+Date of Performance.:
+
+Date of Submission.:
+
+CO Mapping
+CO5: Deploy web application using MERN stack
+
+Objective of Experiment: To develop a full-stack application where:
+Frontend (UI) collects user data 
+Backend (Node.js + Express) processes requests 
+MongoDB stores and retrieves data
+Pre-Requisite: 
+  Basic knowledge of: 
+JavaScript 
+Node.js 
+MongoDB 
+ Installed tools: 
+Node.js 
+MongoDB Atlas account (or local MongoDB) 
+VS Code / any editor 
+Postman (for testing APIs)
+
+
+
+
+
+
+
+Theory:
+Modern web applications follow a three-tier architecture:
+Frontend (Client-side) – User Interface 
+Backend (Server-side) – Business Logic 
+Database – Data Storage 
+MongoDB integration with frontend means enabling the UI to:
+Send data to the database 
+Retrieve and display stored data 
+Perform CRUD operations through APIs
+CRUD) operations
+
+Architecture Flow of Frontend integration with MongoDB 
+1. High-Level Architecture
+The flow of data in a full-stack backend application is as follows:
+
+
+2. Detailed Step-by-Step Flow
+Step 1: User Interaction
+User enters data in the frontend form (e.g., name, email, age) 
+Clicks a button like “Add User” 
+
+Step 2: Frontend Processing
+Frontend captures input values 
+Sends an HTTP request using: 
+fetch() or axios 
+👉 Example:
+fetch('http://localhost:3000/users', {  method: 'POST',  body: JSON.stringify(user),  headers: { 'Content-Type': 'application/json' }});
+
+Step 3: API Request Handling (Backend)
+Request reaches Express server 
+Express routes handle the request: 
+/users → POST, GET, PUT, DELETE 
+
+Step 4: Business Logic Layer
+Backend validates data 
+Applies logic (e.g., required fields, formatting) 
+
+Step 5: Database Interaction
+Backend uses Mongoose to interact with MongoDB: 
+save() → Insert data 
+find() → Retrieve data 
+findByIdAndUpdate() → Update 
+findByIdAndDelete() → Delete 
+
+Step 6: MongoDB Execution
+MongoDB performs operation 
+Stores or fetches data from collections
+
+
+
+
+
+
+
+Step 7: Response Sent Back
+Backend sends response (JSON format) 
+{  "message": "User added successfully"}
+
+Step 8: Frontend Update
+Frontend receives response 
+Updates UI dynamically: 
+Refresh list 
+Show success message
+
+Problem Statement:
+1.Task Tracker System
+Objective:
+Develop a full-stack application to manage daily tasks with MongoDB integration.
+Description:
+Users can create, view, update, and delete tasks with status tracking.
+Requirements
+Frontend
+Form to add task: 
+Title 
+Description 
+Deadline 
+Status (Pending / Completed) 
+Display task list 
+Buttons to update status and delete 
+Backend APIs
+Method
+Endpoint
+Description
+POST
+/tasks
+Create task
+GET
+/tasks
+Get all tasks
+PUT
+/tasks/:id
+Update task
+DELETE
+/tasks/:id
+Delete task
+Database Schema
+title (String, required) 
+description (String) 
+deadline (Date) 
+status (String: Pending/Completed) 
+
+2. Student Feedback System
+Objective:
+Build a system to collect and manage student feedback for courses.
+Description:
+Students submit feedback which can be viewed and managed.
+Requirements
+Frontend
+Form fields: 
+Student Name 
+Course Name 
+Rating (1–5) 
+Comments 
+Display feedback list 
+Backend APIs
+Method
+Endpoint
+Description
+POST
+/feedback
+Submit feedback
+GET
+/feedback
+View all feedback
+DELETE
+/feedback/:id
+Delete feedback
+Database Schema
+studentName (String) 
+courseName (String) 
+rating (Number, 1–5) 
+comments (String) 
+
+3. Expense Tracker
+Objective:
+Create a system to track daily expenses with category-wise storage.
+Description:
+Users can record expenses and view spending history.
+Requirements
+Frontend
+Input fields: 
+Amount 
+Category (Food, Travel, Bills, etc.) 
+Date 
+Display expense list 
+Show total expenses 
+Backend APIs
+Method
+Endpoint
+Description
+POST
+/expenses
+Add expense
+GET
+/expenses
+Get all expenses
+DELETE
+/expenses/:id
+Delete expense
+Database Schema
+amount (Number, required) 
+category (String) 
+date (Date) 
+
+4. Product Inventory System
+Objective:
+Develop a system to manage product inventory using MongoDB.
+Description:
+Store and manage product details with stock updates.
+Requirements
+Frontend
+Form fields: 
+Product Name 
+Price 
+Quantity 
+Display product list 
+Buttons to update quantity and delete 
+Backend APIs
+Method
+Endpoint
+Description
+POST
+/products
+Add product
+GET
+/products
+View products
+PUT
+/products/:id
+Update product
+DELETE
+/products/:id
+Delete product
+Database Schema
+name (String) 
+price (Number) 
+quantity (Number) 
+
+5.Event Registration System
+Objective:
+Build a system to register users for events and manage entries.
+Description:
+Users can register for events, and admin can manage registrations.
+Requirements
+Frontend
+Form fields: 
+Name 
+Email 
+Event Name 
+Display registered users 
+Backend APIs
+Method
+Endpoint
+Description
+POST
+/registrations
+Register user
+GET
+/registrations
+View registrations
+DELETE
+/registrations/:id
+Cancel registration
+Database Schema
+name (String) 
+email (String, unique) 
+eventName (String) 
+
+
+Conclusion
+This assignment demonstrates full-stack development by integrating frontend, backend, and MongoDB.Students implement CRUD operations and understand client-server communication.It provides hands-on experience with REST APIs and data handling.Key concepts like validation and error handling are applied.Overall, it builds a strong foundation for real-world web application development.
+
+
+
+
+Post-Lab Task:
+Connect the forms developed in Experiment 2 and Experiment 3 to the MongoDB database using a backend server. Ensure that the form data is successfully sent from the frontend, processed through appropriate API endpoints, and stored in the database. Additionally, verify proper data validation and error handling during the integration process.
+
+
+
+References:
+Official Documentation
+MongoDB Official Documentation – https://www.mongodb.com/docs/ 
+Mongoose Documentation – https://mongoosejs.com/docs/ 
+Node.js Official Documentation – https://nodejs.org/en/docs/ 
+Express.js Documentation – https://expressjs.com/ 
+React Official Documentation – https://react.dev/ 
+MDN Web Docs (JavaScript & Fetch API) – https://developer.mozilla.org/ 
+Postman Learning Center – https://learning.postman.com/ 
+
+Video References (YouTube)
+freeCodeCamp.org – Full Stack MERN Tutorial 
+CodeWithHarry – MongoDB & Node.js Playlist 
+Programming with Mosh – REST API & Backend Development 
+Traversy Media – MERN Stack Crash Course 
+
+Online Courses (Udemy)
+The Complete 2024 Web Development Bootcamp 
+Node.js, Express, MongoDB & More: The Complete Bootcamp 
+MERN Stack Front To Back 
+React - The Complete Guide
+Additional Learning Resources
+GeeksforGeeks – MongoDB & MERN tutorials 
+W3Schools – JavaScript & Node.js basics 
+Coursera – Full Stack Development courses 
+edX – Web development programs 
+Stack Overflow – Debugging and problem solving 
+GitHub – Open-source project references
+
+
+
+
