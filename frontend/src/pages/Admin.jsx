@@ -110,7 +110,7 @@ const Admin = () => {
       
       if (res.ok) {
         setScanResult({ 
-          status: \`Verified! \${data.registration.name} (\${data.registration.seats.length} seats)\`, 
+          status: `Verified! ${data.registration.name} (${data.registration.seats.length} seats)`, 
           type: 'success' 
         });
         
@@ -198,7 +198,7 @@ const Admin = () => {
 
           {/* Scan Results Overlay */}
           {scanResult && (
-            <div className={\`booking-alert \${scanResult.type === 'error' ? 'booking-alert--error' : ''}\`} style={{ background: scanResult.type === 'success' ? '#d4edda' : undefined, color: scanResult.type === 'success' ? '#155724' : undefined, borderColor: scanResult.type === 'success' ? '#c3e6cb' : undefined, border: '1px solid', padding: '1rem', borderRadius: '8px', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '1.05rem', fontWeight: 600 }}>
+            <div className={`booking-alert ${scanResult.type === 'error' ? 'booking-alert--error' : ''}`} style={{ background: scanResult.type === 'success' ? '#d4edda' : undefined, color: scanResult.type === 'success' ? '#155724' : undefined, borderColor: scanResult.type === 'success' ? '#c3e6cb' : undefined, border: '1px solid', padding: '1rem', borderRadius: '8px', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '1.05rem', fontWeight: 600 }}>
               {scanResult.type === 'success' ? <CheckCircle2 size={24} /> : scanResult.type === 'error' ? <XCircle size={24} /> : <AlertCircle size={24} />}
               {scanResult.status}
             </div>
