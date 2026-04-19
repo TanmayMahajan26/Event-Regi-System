@@ -9,6 +9,7 @@ const registrationSchema = new mongoose.Schema({
     eventName: { type: String, required: true },
     city: { type: String, default: '' },
     seats: [{ type: String }],
+    isCheckedIn: { type: Boolean, default: false },
     registeredAt: { type: Date, default: Date.now }
 });
 

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Registration = require('../models/Registration');
 
+const { sendTicketEmail } = require('../utils/emailService');
+
 // POST /registrations — Create a new registration
 router.post('/', async (req, res) => {
     try {
@@ -35,6 +37,10 @@ router.post('/', async (req, res) => {
 
         const registration = new Registration({ name, email, phone, age, gender, eventName, city, seats });
         await registration.save();
+        
+        // Asynchronously dispatch the QR Code email ticket
+        sendTicketEmail(registration);
+
         res.status(201).json({ message: 'Registration successful!', registration });
     } catch (error) {
         if (error.code === 11000) {
@@ -80,6 +86,23 @@ router.delete('/:id', async (req, res) => {
         res.json({ message: 'Registration deleted successfully.' });
     } catch (error) {
         res.status(500).json({ message: 'Error deleting registration.' });
+    }
+});
+
+// PATCH /registrations/:id/checkin — Set attendee as checked in via QR Scanner
+router.patch('/:id/checkin', async (req, res) => {
+    try {
+        const registration = await Registration.findByIdAndUpdate(
+            req.params.id,
+            { isCheckedIn: true },
+            { new: true }
+        );
+        if (!registration) {
+            return res.status(404).json({ message: 'Registration not found (Invalid QR Code).' });
+        }
+        res.json({ message: `Successfully validated ticket for ${registration.name}.`, registration });
+    } catch (error) {
+        res.status(500).json({ message: 'Error verifying QR ticket.' });
     }
 });
 
