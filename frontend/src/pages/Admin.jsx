@@ -14,7 +14,7 @@ const Admin = () => {
   const fetchRegistrations = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:3000/registrations');
+      const res = await fetch('https://event-regi-system.onrender.com/registrations');
       const data = await res.json();
       setRegistrations(data);
     } catch (error) {
@@ -44,7 +44,7 @@ const Admin = () => {
     if (!window.confirm('Delete this registration? This will free up the associated seats.')) return;
     
     try {
-      const res = await fetch(`http://localhost:3000/registrations/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://event-regi-system.onrender.com/registrations/${id}`, { method: 'DELETE' });
       if (res.ok) {
         setRegistrations(registrations.filter((r) => r._id !== id));
       }

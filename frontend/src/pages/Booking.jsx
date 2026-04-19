@@ -60,7 +60,7 @@ const Booking = () => {
         seats: selectedSeats
       };
 
-      const res = await fetch('http://localhost:3000/registrations', {
+      const res = await fetch('https://event-regi-system.onrender.com/registrations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

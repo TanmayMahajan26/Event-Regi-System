@@ -19,7 +19,7 @@ const SeatMap = () => {
     if (!event) return;
     const fetchSeats = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/registrations/seats/${encodeURIComponent(event.name)}`);
+        const res = await fetch(`https://event-regi-system.onrender.com/registrations/seats/${encodeURIComponent(event.name)}`);
         const data = await res.json();
         setBookedSeats(new Set(data.bookedSeats || []));
       } catch (err) {
