@@ -102,7 +102,7 @@ const Booking = () => {
               )}
 
               <form onSubmit={handleSubmit}>
-                <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-row">
                   <div className="form-group">
                     <label>Full Name *</label>
                     <input
@@ -129,7 +129,7 @@ const Booking = () => {
                   </div>
                 </div>
 
-                <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-row">
                   <div className="form-group">
                     <label>Phone Number *</label>
                     <input
@@ -143,7 +143,7 @@ const Booking = () => {
                       placeholder="10-digit mobile number"
                     />
                   </div>
-                  <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '1rem' }}>
+                  <div className="form-row-three">
                     <div className="form-group">
                       <label>Age *</label>
                       <input

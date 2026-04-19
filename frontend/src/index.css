@@ -846,6 +846,17 @@ nav ul li a:hover { color: var(--primary-blue); }
 }
 .booking-form-card h2 { font-size: 1.6rem; margin-bottom: 0.3rem; }
 
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-row-three {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1rem;
+}
+
 .form-group { margin-bottom: 1.25rem; }
 .form-group label {
   display: block;
@@ -1151,6 +1162,7 @@ nav ul li a:hover { color: var(--primary-blue); }
   .ticket-right { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; border-right: none; border-top: 2px dashed var(--border-light); }
   .confirmation-actions { flex-direction: column; }
   .top-left-swoosh { display: none; }
+  .form-row, .form-row-three { grid-template-columns: 1fr; gap: 0; }
 }
 
 @media (max-width: 480px) {
