@@ -1136,6 +1136,9 @@ nav ul li a:hover { color: var(--primary-blue); }
 /* =====================================================
    RESPONSIVE
    ===================================================== */
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 @media (max-width: 1024px) {
   .hero-section { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 0; }
   .hero-content h1 { font-size: 3rem; }
@@ -1180,3 +1183,74 @@ nav ul li a:hover { color: var(--primary-blue); }
   .timer-colon { font-size: 1.5rem; }
   .hero-content p { font-size: 0.95rem; }
 }
+
+/* =====================================================
+   MODAL POPUP
+   ===================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  padding: 1.5rem;
+}
+
+.modal-container {
+  background: var(--bg-card);
+  border: 3px solid var(--text-dark);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2rem;
+  max-width: 450px;
+  width: 100%;
+  position: relative;
+  box-shadow: 10px 10px 0px var(--text-dark);
+  text-align: center;
+  animation: modalSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(50px) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--accent-yellow);
+  color: var(--text-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  border: 3px solid var(--text-dark);
+  box-shadow: var(--shadow-brutal-sm);
+}
+
+.modal-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.modal-container p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.modal-close-btn {
+  width: 100%;
+  padding: 1rem !important;
+  font-size: 1rem !important;
+}
+

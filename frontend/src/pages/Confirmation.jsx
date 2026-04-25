@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { CheckCircle, Home, Ticket } from 'lucide-react';
+import { CheckCircle, Home, Ticket, Mail } from 'lucide-react';
 
 const Confirmation = () => {
   const [searchParams] = useSearchParams();
+  const [showModal, setShowModal] = useState(true);
+  
   const name = searchParams.get('name') || '';
   const email = searchParams.get('email') || '';
   const event = searchParams.get('event') || '';
@@ -86,8 +88,31 @@ const Confirmation = () => {
           </div>
         </section>
       </div>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-container">
+            <div className="modal-icon">
+              <Mail size={40} />
+            </div>
+            <h2>Check Your Mail!</h2>
+            <p>
+              We've sent your official tickets and a QR code for entry to <strong>{email}</strong>. 
+              Please check your mail to ensure you have everything ready for the event.
+            </p>
+            <button 
+              className="btn btn-primary modal-close-btn"
+              onClick={() => setShowModal(false)}
+            >
+              Got it, thanks!
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default Confirmation;
+
